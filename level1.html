@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>level1</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            list-style: none;
+        }
+
+        li {
+            position: absolute;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+        }
+
+        p {
+            display: flex;
+            width: 90%;
+            height: 30px;
+            line-height: 30px;
+            margin: 0;
+            justify-content: space-around;
+        }
+
+        a {
+            display: flex;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        span {
+            display: flex;
+            width: 200px;
+            height: 240px;
+            background: no-repeat;
+            background-size: 100%;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .father {
+            display: flex;
+            width: 1050px;
+            height: auto;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+
+        @font-face {
+            font-family: "iconfont";
+            src: url('iconfont.eot?t=1618838909620');
+            /* IE9 */
+            src: url('iconfont.eot?t=1618838909620#iefix') format('embedded-opentype'),
+                /* IE6-IE8 */
+                url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAL8AAsAAAAABsQAAAKtAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDFAqBHIEjATYCJAMMCwgABCAFhG0HPBv9BciuMG7hCUSLEggBxNrLDcDbGdAIvsZ+++7ui4I3SCaJKjadpAlPlEBoUBKNkKFUyx4S/n/7tb+cWdTr0NcbJvJkZtfnGW6hcEhUl7Rka5bEG5EvCnWye28zVaiJkqWi5msSNPGmyVf2/1yO7yqgQOa3s1zWHDSejwmYYIBrDOESCcgbxi54gfMJNI3S89ssKKuDIIXdLBDnDhsHQQW3orBYXag29C3EFX/1dOkSwGX0/fgAawQhqWTstltn+SJkPQd+zOex/zFtgdb4ckawQWTMAYU4aAzvQ4IRkWZ1nQWgqghpKef/fyJ0jm1Iqwf94yVBVLET22ARRjLP5WEEz4uReD7uwy+SQRUFY8ASIgy+I0ltD2q9uam/u2u8vW24viaIG1QWnGxAwMXN6XGiuvzSVt+AnD+Izn79zWEEPnc6X3b5puMvITl890efMo7zxmFU9f3jRlJ8lFl+gdz9801dAP/H2Zezot+NooM8xg/BZlr8KTLtK6iVwNNfDwPn/6gOhsWDusRgzv/jDCwoBs/W5KKxPbZlzYYmGhOQyW3+wbb3e5guH7q5aKgbyiCpGYGsbgwphDmoaFmEqroVaJpVOLhlgAKJ0jBjGkDotQ1J1y1kva6QQriHimGfUNUbCJq2I3bMlolwhOQqhNOIiPl+7BCYl7o6LSROriG2bjen5HkRqYEoqsOHLUZzOVZIvERZooPaY7NqGsVUYR5cABYjbjfDksKcRNCMdk2TUkwm2nQjo8A8EGKDguBoCBHG64c5CBgvGpTXhFQ+X4Ow6ebGUTpS6vQNCIXKUTlmYWQegBSKvYNSHuUQVQ8bK42GwigF44EVgFqEmxuDSc21nAiBxsg+IShJYXJK0aFi4/ZSzw9ksQzsbXKErKR1xCjntRkEJvXrJDfXDwAAAAA=') format('woff2'),
+                url('iconfont.woff?t=1618838909620') format('woff'),
+                url('iconfont.ttf?t=1618838909620') format('truetype'),
+                /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+                url('iconfont.svg?t=1618838909620#iconfont') format('svg');
+            /* iOS 4.1- */
+        }
+
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .icon-play:before {
+            content: "\e688";
+        }
+
+        input {
+            width: 100px;
+            height: 20px;
+            outline: none;
+        }
+
+        .father2 {
+            display: flex;
+            width: 1050px;
+            height: auto;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div style="width:100%;height:30px;">
+        <button class="button1">点击获取推荐歌单</button>
+        <button class="button2">清空推荐歌单</button>
+        <input type="text">
+        <button class="button3">搜索</button>
+        <button class="button4">清空搜索</button>
+    </div>
+    <div class="father"></div>
+    <div class="father2"></div>
+    <script src="https://lib.baomitu.com/jquery/3.6.0/jquery.js"></script>
+    <script>
+        $(".button1").click(() => {
+            $.ajax({
+                type: "GET",
+                url: "http://musicapi.leanapp.cn/personalized?limit=20",
+                dataType: 'json',
+                xhrFields: {
+                    withCredentials: true
+                },
+                data: JSON.stringify({
+                    a: [{
+                        b: 1,
+                        a: 1
+                    }]
+                }),
+                error: function (xhr, status) {
+                    console.log(xhr, status);
+                },
+                success: function (data, status) {
+                    console.log(data.result, status);
+                    addRecommend(data.result);
+                }
+            })
+
+        })
+        $(".button3").click(() => {
+            var input = document.querySelector('input');
+            if (input.value.replace(' ', '') != '') {
+                $.ajax({
+                    type: "GET",
+                    url: "http://musicapi.leanapp.cn/search" + "?keywords= " + input.value +
+                        "&&limit=20",
+                    dataType: 'json',
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    data: JSON.stringify({
+                        a: [{
+                            b: 1,
+                            a: 1
+                        }]
+                    }),
+                    error: function (xhr, status) {
+                        console.log(xhr, status);
+                    },
+                    success: function (data, status) {
+                        console.log(data.result.songs, status);
+                        addList(data.result.songs);
+
+                    }
+
+                })
+
+            } else {
+                alert('请输入搜索关键字！');
+            }
+
+        })
+
+        function clear1() {
+            var father = document.getElementsByClassName("father")[0];
+            var t = father.children.length;
+            for (let i = 0; i < t; i++) {
+                father.removeChild(father.children[0]);
+            }
+        }
+
+        function clear2() {
+            var father = document.getElementsByClassName("father2")[0];
+            var t = father.children.length;
+            for (let i = 0; i < t; i++) {
+                father.removeChild(father.children[0]);
+            }
+        }
+        $(".button2").click(clear1)
+        $(".button4").click(clear2)
+
+        function addRecommend(array) {
+            clear1();
+            var father = document.getElementsByClassName("father")[0];
+            for (let i = 0; i < array.length; i++) {
+                var span = document.createElement('span');
+                span.style.backgroundImage = array[i].picUrl;
+                span.style.backgroundImage = 'url("' + array[i].picUrl + '")';
+                father.appendChild(span);
+                var li1 = document.createElement('li');
+                li1.innerHTML = array[i].name;
+                li1.style.fontSize = 12 + 'px';
+                li1.style.top = 205 + 'px';
+                span.appendChild(li1);
+                var li2 = document.createElement('li');
+                li2.style.right = 0;
+                li2.innerHTML = '<i class="iconfont" style="font-size:12px">&#xe688;</i> ' + Math.round(array[i]
+                    .playCount / 10000) + '万';
+                li2.style.fontSize = 12 + 'px';
+                li2.style.color = 'white';
+                span.appendChild(li2);
+            }
+        }
+
+        function addList(array) {
+            clear2();
+            var father = document.getElementsByClassName("father2")[0];
+            var p1 = document.createElement('p');
+            for (let j = 0; j < 4; j++) {
+                var a = document.createElement('a');
+                var width = 80;
+                var text = '';
+                switch (j) {
+                    case 0:
+                        text += '';
+                        break;
+                    case 1:
+                        width = 300;
+                        text += '音乐标题';
+                        break;
+                    case 2:
+                        width = 150;
+                        text += '歌手';
+                        break;
+                    default:
+                        width = 300;
+                        text += '专辑';
+                }
+                a.style.width = width + 'px';
+                a.innerHTML = text;
+                p1.appendChild(a);
+            }
+            father.appendChild(p1);
+            for (let i = 0; i < array.length; i++) {
+                var p = document.createElement('p');
+                father.appendChild(p);
+                for (let j = 0; j < 4; j++) {
+                    var a = document.createElement('a');
+                    var width = 80;
+                    var text = '';
+                    switch (j) {
+                        case 0:
+                            text += '0' + (i + 1);
+                            break;
+                        case 1:
+                            width = 300;
+                            text += array[i].name;
+                            break;
+                        case 2:
+                            width = 150;
+                            text += array[i].artists[0].name;
+                            break;
+                        default:
+                            width = 300;
+                            text += array[i].album.name;
+                    }
+                    a.style.width = width + 'px';
+                    a.innerHTML = text;
+                    p.appendChild(a);
+                }
+            }
+            for (let i = 0; i < father.children.length; i++) {
+                if (i % 2 != 0) {
+                    father.children[i].style.backgroundColor = '#f0f1f2';
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

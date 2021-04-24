@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>封装方法调接口</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- <script src="https://lib.baomitu.com/jquery/3.6.0/jquery.js"></script> -->
+    <script>
+        window.onload = function () {
+            function success(data, status) {
+                console.log(data, status);
+            }
+
+            function error() {
+                console.log('请求失败');
+            }
+
+            function sendRequest(method, url, error, success, data) {
+                var xhr = new XMLHttpRequest();
+                if (data) {
+                    url += "?";
+                    let k = 0;
+                    for (let i in data) {
+                        if (k != 0) {
+                            this.url += "&&";
+                        }
+                        url += i + "=" + data[i];
+                        k++;
+                    }
+                }
+                xhr.open(method, url, true);
+                // 接收返回值
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+                            console.log('请求成功');
+                            const res = JSON.parse(xhr.response);
+                            success(res, xhr.status);
+                        }
+                    }
+                }
+                // 设置请求头
+                // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                // 异常处理
+                xhr.onerror = function () {
+                    error();
+                }
+                // 发出请求
+                xhr.send();
+            }
+            sendRequest('get', 'http://musicapi.leanapp.cn/personalized',
+                error,
+                success, {
+                    limit: 23
+                });
+            // sendRequest('post', 'http://musicapi.leanapp.cn/personalized',
+            //     error,
+            //     success, {
+            //         limit: 25
+            //     });
+        }
+    </script>
+</body>
+
+</html>
